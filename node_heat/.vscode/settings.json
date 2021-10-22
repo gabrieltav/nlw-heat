@@ -1,0 +1,6 @@
+{
+    "cSpell.language": "en,pt",
+    "[prisma}": {
+        "editor.defaultFormatter": "Prisma.prisma"
+    }
+}
