@@ -4,12 +4,12 @@ import { AuthContext } from '../../contexts/auth';
 import styles from './styles.module.scss';
 
 export function SendMessageForm() {
-    const { user } = useContext(AuthContext)
+    const { user, signOut } = useContext(AuthContext)
 
     return (
 
         <div className={styles.sendMessageFormWrapper}>
-            <button className={styles.signOutButton}>
+            <button onClick={signOut} className={styles.signOutButton}>
                 <VscSignOut size="32" />
             </button>
 
@@ -18,7 +18,7 @@ export function SendMessageForm() {
                     <img src={user?.avatar_url} alt={user?.name} />
                 </div>
                 <strong className={styles.userName}>{user?.name}</strong>
-                <span>
+                <span className={styles.userGithub}>
                     <VscGithubInverted size="16" />
                     {user?.login}
                 </span>
@@ -29,7 +29,7 @@ export function SendMessageForm() {
                 <textarea
                     name="message"
                     id="message"
-                    placeholder="Qual ua expectativa para o evento?"
+                    placeholder="Qual sua expectativa para o evento?"
                 />
 
                 <button type="submit">Enviar mensagem</button>
